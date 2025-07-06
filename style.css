@@ -1,0 +1,777 @@
+/* --- General Body & Font Setup --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    /* Set the new font as the default for the entire page */
+    font-family: "Figtree","Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+    background-color: #000; 
+}
+
+/* --- Chapter & Background Setup (No changes here) --- */
+.chapter {
+    position: relative;
+    z-index: 1;
+}
+#chapter1 { height: 800vh; }
+#chapter2 { height: 700vh; }
+
+
+
+.background {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+
+#bg1 {
+    background-image: url('./bg1.png'); /* Your custom image */
+    background-size: cover;
+    background-position: center;
+    background-color: #ffc0cb;
+}
+
+#bg2 {
+    background-image: url('night-sky.jpg'); /* Your custom image */
+    background-size: cover;
+    background-position: center;
+}
+
+#scroll-intro {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    flex-direction: column;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 500;
+    text-align: center;
+}
+
+.lottie-container p {
+    margin-top: 15px;
+    font-family: "Figtree", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+lottie-player {
+    filter: invert(100%) sepia(100%) saturate(1000%) hue-rotate(300deg);
+  }
+  
+      
+/* --- AESTHETIC UPGRADE FOR SCENES --- */
+.scene {
+    position: relative; /* Changed from sticky to fixed for the centered fade effect */
+    top: 0;
+    left: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    text-align: center;
+    padding: 60px; /* Increased padding for more breathing room */
+    box-sizing: border-box;
+    
+    /* --- New Font Styling --- */
+    font-size: 2.2em;  /* Increased base font size */
+    font-weight: 600;  /* Bolder font weight (600 is "Semi-bold") */
+    line-height: 1.4;  /* Improved line spacing */
+}
+
+.scene.active {
+    opacity: 1;
+}
+
+/* --- GRADIENT & SHADOW STYLING PER CHAPTER --- */
+
+/* For Chapter 1 (Light Background) */
+#chapter1 .scene {
+    /* A soft, warm gradient */
+    background: -webkit-linear-gradient(45deg, #d44a7f, #f08a5d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* A subtle shadow to make the gradient text pop */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* For Chapter 2 (Dark Background) */
+/* #chapter2 .scene {
+    background-image: url('./sky_view-2.png');
+    background-size: cover;
+    background-position: center;
+    /* A bright, ethereal gradient that mimics starlight */
+    /* background: -webkit-linear-gradient(45deg, #e0c3fc, #8ec5fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+
+    /* A glow effect for the text */
+    /* text-shadow: 0 0 15px rgba(234, 212, 255, 0.3), 0 0 5px rgba(255, 255, 255, 0.2); */
+/* } */ 
+#chapter2 {
+    background-color: black;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  #chapter2 .scene {
+    position: relative;
+    z-index: 10;
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+  
+    /* Glowing white text */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 5px rgba(255, 255, 255, 0.2);
+  }
+  
+  /* The circular stars background */
+  #chapter2::before {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 900px; /* Adjust size as needed */
+    height: 900px;
+    transform: translate(-50%, -50%);
+    background-image: url('./sky_view-2.svg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  #chapter2.active::before {
+    transition: ease-in 0.3s;
+    opacity: 0.5;
+  }
+
+
+/* --- SPECIAL SCENE STYLING --- */
+
+/* Overriding the gradient for the main Birthday H1 to make it solid and impactful */
+#scene5 h1 {
+    font-weight: 800; /* Even bolder */
+    font-size: 3.5em; /* Larger H1 */
+    color: #c9467a; /* A solid, deep pink color */
+    -webkit-text-fill-color: initial; /* Resets the gradient for this element */
+    background: none; /* Removes the gradient background */
+}
+
+/* Make the word "You." solid white and bright */
+#scene12.scene-highlight {
+    font-size: 4em;
+    font-weight: 800;
+    color: #fff;
+    -webkit-text-fill-color: initial;
+    background: none;
+}
+
+/* --- APPEND ALL OF THIS TO THE END OF YOUR style.css FILE --- */
+
+/* --- Chapter 3 Setup --- */
+#chapter3 {
+    /* 100vh for the intro text + 400vh for the collage scroll = 500vh total height */
+    height: 700vh;
+}
+
+/* A simple, dark background for the collage chapter */
+#bg3 {
+    background-color: #1a1a1a;
+}
+
+/* Style for the intro text of Chapter 3 */
+#chapter3 .scene {
+    /* Re-using the starlight gradient from Chapter 2 */
+    background: -webkit-linear-gradient(45deg, #e0c3fc, #8ec5fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(234, 212, 255, 0.3), 0 0 5px rgba(255, 255, 0.2);
+}
+
+/* --- The Collage Animation Styling --- */
+
+/* This element defines the scroll duration for the animation (400vh) */
+#collage-scene {
+    position: relative;
+    height: 500vh;
+    width: 100%;
+}
+
+/* --- REPLACE THE OLD COLLAGE STYLES WITH THIS NEW SECTION --- */
+
+/* This container is "pinned" to the screen */
+#collage-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+
+    /* A more complex grid for a more artistic layout */
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Styling for the individual collage blocks (no changes here) */
+.collage-block {
+    background-color: #333;
+    border-radius: 12px;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.collage-block.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* --- New Asymmetrical Grid Layout for 10 Blocks --- */
+/* Each block now has a more traditional, photo-friendly aspect ratio */
+#block1 { 
+    grid-area: 1 / 1 / 5 / 5;   
+    background-image: url('./photos/WhatsApp Image 2025-07-05 at 18.49.59.jpeg'); /* <-- Add your image file name */
+    background-size: cover; /* This makes the image fit nicely */
+    background-position: center; /* This centers the image in the box */ 
+} /* 4:4 Square */
+#block2 { grid-area: 1 / 5 / 4 / 9;
+    background-image: url('./photos/WhatsApp Image 2025-07-05 at 18.56.53.jpeg'); /* <-- Add your image file name */
+    background-size: cover; /* This makes the image fit nicely */
+    background-position: center; /* This centers the image in the box */ 
+} /* 3:4 Landscape */
+#block3 { grid-area: 1 / 9 / 6 / 13;
+    background-image: url('./photos/WhatsApp Image 2025-07-05 at 18.54.14.jpeg'); /* <-- Add your image file name */
+    background-size: cover; /* This makes the image fit nicely */
+    background-position: center; /* This centers the image in the box */ 
+} /* 5:4 Portrait */
+#block4 { grid-area: 5 / 1 / 11 / 5;
+    background-image: url('./photos/WhatsApp Image 2025-07-05 at 18.54.42.jpeg'); /* <-- Add your image file name */
+    background-size: cover; /* This makes the image fit nicely */
+    background-position: center; /* This centers the image in the box */ 
+} /* 6:4 Portrait */
+#block5 { grid-area: 4 / 5 / 8 / 9;
+    background-image: url('./photos/WhatsApp Image 2025-07-05 at 18.56.28.jpeg'); /* <-- Add your image file name */
+    background-size: cover; /* This makes the image fit nicely */
+    background-position: center; /* This centers the image in the box */ 
+} /* 4:4 Square */
+#block6 { grid-area: 6 / 9 / 11 / 13;
+    background-image: url('./photos/WhatsApp Image 2025-07-05 at 18.52.17.jpeg'); /* <-- Add your image file name */
+    background-size: cover; /* This makes the image fit nicely */
+    background-position: center; /* This centers the image in the box */ 
+} /* 5:4 Portrait */
+#block7 { grid-area: 8 / 5 / 11 / 7;
+    background-image: url('./photos/WhatsApp Image 2025-07-05 at 19.02.27.jpeg'); /* <-- Add your image file name */
+    background-size: cover; /* This makes the image fit nicely */
+    background-position: center; /* This centers the image in the box */ 
+} /* 3:2 Portrait */
+#block8 { grid-area: 8 / 7 / 11 / 9;
+    background-image: url('./photos/WhatsApp Image 2025-07-05 at 18.55.56.jpeg'); /* <-- Add your image file name */
+    background-size: cover; /* This makes the image fit nicely */
+    background-position: center; /* This centers the image in the box */ 
+} /* 3:2 Portrait */
+/* Hide this block to create a gap */
+
+/*
+   A NEW, BETTER EXAMPLE FOR ADDING IMAGES LATER:
+   When you're ready, replace the background-color and display properties.
+   
+   #block1 {
+       grid-area: 1 / 1 / 5 / 5;
+       background-image: url('path/to/your/image1.jpg');
+       background-size: cover;
+       background-position: center;
+   }
+*/
+
+/* --- APPEND THIS TO THE END of style.css --- */
+
+/* Styling for the final text overlay */
+#final-text {
+    /* Fixed position to overlay the collage */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10; /* Ensures it's on top of the collage blocks */
+
+    /* Centering the text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px;
+    box-sizing: border-box;
+    
+    /* Initially invisible */
+    opacity: 0;
+    pointer-events: none; /* Prevents it from interfering with mouse events when invisible */
+    transition: opacity 1.5s ease-in-out;
+
+    /* Using the same font style as the other text in this chapter */
+    background: -webkit-linear-gradient(45deg, #e0c3fc, #8ec5fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(234, 212, 255, 0.3), 0 0 5px rgba(255, 255, 0.2);
+    font-size: 2.2em;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* This class will be added by JavaScript to make the text appear */
+#final-text.visible {
+    opacity: 1;
+}
+
+/* --- APPEND ALL OF THIS TO THE END OF YOUR style.css FILE --- */
+
+/* --- Chapter 4 Setup --- */
+/* This chapter is not scroll-driven, so it's only 100vh tall */
+/* --- DELETE ALL OLD CHAPTER 4 STYLES AND REPLACE WITH THIS --- */
+
+/* --- Chapter 4 Setup --- */
+/* This chapter is not scroll-driven. It's a single, interactive stop. */
+#chapter4 {
+    height: 101vh;
+    position: sticky; /* The chapter itself sticks */
+    top: 0;
+    display: flex; /* Use flexbox to center the content */
+    justify-content: center;
+    align-items: center;
+    background-color: #a7d8f0; /* Light blue background */
+}
+
+/* --- Envelope Redesign --- */
+.envelope-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.envelope {
+    position: relative;
+    width: 320px;
+    height: 200px;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.15));
+}
+
+.envelope-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #f0eada;
+    border-radius: 8px;
+}
+
+.envelope-body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f7f3e9;
+    clip-path: polygon(0 40%, 100% 40%, 100% 100%, 0% 100%);
+    border-radius: 0 0 8px 8px;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fcf8f0;
+    transform-origin: top;
+    transition: transform 0.7s 0.2s ease-out; /* Added a slight delay */
+    clip-path: polygon(0 0, 100% 0, 50% 45%);
+    z-index: 30;
+}
+
+/* --- Redesigned Heart Seal --- */
+.heart-seal {
+    position: absolute;
+    top: 75px;
+    left: 50%;
+    width: 32px;
+    height: 32px;
+    transform: translateX(-50%) rotate(45deg);
+    background-color: #e53935;
+    z-index: 35;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.heart-seal:before, .heart-seal:after {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #e53935;
+}
+.heart-seal:before { top: -16px; left: 0; }
+.heart-seal:after { top: 0; left: -16px; }
+
+
+/* --- Redesigned Notes --- */
+/* -- REPLACE IT WITH THIS -- */
+.note {
+    position: absolute;
+    width: 280px;
+    height: 160px;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 10;
+    opacity: 0;
+    transition: transform 0.7s 0.5s ease-out, opacity 0.7s 0.5s ease-out;
+
+    /* --- NEW FONT STYLING --- */
+    font-family: "Caveat", cursive; /* Applying the handwritten font */
+    font-size: 2.1em; /* Much larger for a handwritten look */
+    line-height: 1.3; /* Adjusted spacing */
+    color: #1c3a5c; /* A softer, deep blue ink color */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; /* <-- This will fix the centering */
+}
+.note a { text-decoration: none; color: #007BFF; font-weight: 600; }
+
+.click-prompt {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 1em;
+    font-weight: 500;
+    color: #f7f7f7;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: opacity 0.5s;
+}
+
+/* --- The "Opened" State Animation --- */
+.envelope-wrapper.opened .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 5;
+    transition-delay: 0s;
+}
+.envelope-wrapper.opened .heart-seal {
+    opacity: 0;
+    transform: translateX(-50%) rotate(45deg) scale(0);
+    transition-delay: 0s;
+}
+.envelope-wrapper.opened .note {
+    opacity: 1;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+/* -- REPLACE THEM WITH THESE -- */
+.envelope-wrapper.opened .note1 {
+    /* Moves up, further to the left, and rotates */
+    transform: translateY(-105px) translateX(-85px) rotate(-12deg);
+    z-index: 21;
+}
+.envelope-wrapper.opened .note2 {
+    /* Moves up less, further to the right, and rotates the other way */
+    transform: translateY(-80px) translateX(105px) rotate(8deg);
+    z-index: 20;
+}
+.envelope-wrapper.opened .click-prompt {
+    opacity: 0;
+}
+
+/* --- APPEND THIS TO THE END of style.css --- */
+
+/* Styling for the "come back" reminder text */
+.come-back-text {
+    font-family: "Caveat", cursive; /* Using the main site font for clarity */
+    font-size: 0.5em; /* Much smaller than the main text */
+    font-style: italic;
+    color: rgba(28, 58, 92, 0.7); /* A lighter, less prominent ink color */
+    text-align: right; /* Aligns it to the right */
+    width: 100%;
+}
+
+/* --- APPEND ALL OF THIS TO THE END OF YOUR style.css FILE --- */
+
+/* --- Chapter 5 Setup --- */
+/* This is another static, non-scrolling chapter stop */
+#chapter5 {
+    height: 101vh;
+    position: sticky;
+    top: 0;
+    background-color: #191414; /* Spotify's dark background color */
+}
+
+.spotify-scene {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Styling for the text above the playlist */
+.spotify-scene h2 {
+    font-size: 2.2em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    background: -webkit-linear-gradient(45deg, #1DB954, #1ed760); /* Spotify Green Gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.spotify-scene .spotify-subtitle {
+    font-size: 1em;
+    font-weight: 400;
+    color: #b3b3b3; /* Spotify's light grey text color */
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/* Styling for the Spotify Player itself */
+.spotify-scene iframe {
+    width: 100%;
+    max-width: 450px; /* A good maximum width for the player */
+    height: 500px; /* A taller height to show more songs in the list */
+    border: none; /* Removes any default border */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+/* --- APPEND THIS TO THE END of style.css --- */
+
+/* Removes the default space below the "I love you 3000" line */
+.main-note-text {
+    margin-bottom: 0;
+}
+
+/* Styling for the new "friends wish" text */
+/* -- REPLACE IT WITH THIS -- */
+.friends-wish {
+    /* Changed to the handwritten font */
+    font-family: "Caveat", cursive;
+    /* Increased font size for better readability */
+    font-size: 0.6em;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-top: 10px;
+    color: rgba(28, 58, 92, 0.85);
+}
+
+/* --- APPEND ALL OF THIS TO THE END OF YOUR style.css FILE --- */
+
+/* --- DELETE all old Chapter 6 styles and REPLACE with this --- */
+
+/* --- Chapter 6 Setup --- */
+/* #chapter6 {
+    min-height: 100vh;
+    padding-top: 100px;
+    padding-bottom: 200px;
+    height: 350vh; 
+    position: relative;
+    background-color: #000; 
+} */
+
+/* The animated gradient is now a pseudo-element that we can fade in */
+/* #chapter6::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff007b, #ff7b00, #3d00ff, #00d9ff);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+    opacity: var(--bg-opacity, 0);
+    transition: opacity 1s ease-in-out;
+    z-index: 1;
+} */
+
+/* --- Main Animation Container --- */
+#finale-scene {
+    position: sticky; /* The whole scene sticks */
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden; /* Prevents elements from spilling out during zoom */
+}
+
+/* --- Both text containers will be absolutely positioned to overlay each other --- */
+#love-you-text, #reasons-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* --- "I Love You" Text Styling --- */
+#love-you-text {
+    z-index: 4;
+    font-size: 4.5em;
+    font-weight: 800;
+    color: #ffd700;
+    -webkit-text-stroke: 1px #ffc400;
+    text-shadow: 0 0 10px #ffc700, 0 0 20px #ffc700, 0 0 40px #ff8000, 0 0 60px #ff0000;
+    opacity: 0; /* Starts invisible */
+    transform: scale(1);
+}
+
+#reasons-container{
+    z-index: 5;
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+/* New Chapter 6 Styles */
+#chapter6 {
+    height: 300vh; /* Scroll height */
+    position: relative;
+    background: linear-gradient(45deg, #ff007b, #ff7b00, #3d00ff, #00d9ff);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Container for love text */
+.love-text-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.love-text {
+    font-size: 5rem;
+    font-weight: 800;
+    color: #ffbb00;
+    text-shadow: 0 0 20px #ffc700, 0 0 40px #ff8000, 0 0 60px #ff0000;
+    text-align: center;
+    margin: 0;
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.5s ease;
+}
+
+/* Container for reasons text */
+.reasons-text-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 3;
+    opacity: 1;
+    transition: opacity 0.8s ease;
+    padding: 2rem;
+}
+
+.reasons-text-container h2 {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.gdrive-button {
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    color: white;
+    padding: 1.5rem 3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.5rem;
+    box-shadow: 0 8px 25px rgba(255, 20, 147, 0.4);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.gdrive-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(255, 20, 147, 0.6);
+    background: linear-gradient(45deg, #ff1493, #ff69b4);
+}
+
+.scroll-hint {
+    margin-top: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+    font-style: italic;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* Hidden state */
+.hidden {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .love-text {
+        font-size: 3rem;
+    }
+    
+    .reasons-text-container h2 {
+        font-size: 2rem;
+    }
+    
+    .gdrive-button {
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
+    }
+}
+/* --- "100 Reasons" Section Styling --- */
+
+#reasons-container h2 { font-size: 2.5em; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5); margin-bottom: 20px; }
+.gdrive-link { background-color: #fff; color: #111; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.2em; box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.gdrive-link:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
+.bouncing-arrow { margin-top: 25px; animation: bounce 1.5s ease-in-out infinite; }
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-20px); } 60% { transform: translateY(-10px); } }
+
+
+.emoji {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+}
